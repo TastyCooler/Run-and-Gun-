@@ -1,0 +1,886 @@
+fileFormatVersion: 2
+guid: d31ba2e994126f146bb9163a29601f58
+timeCreated: 1520252950
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: phantom_glitch__x1_transition_png_1354836326_0
+    21300002: phantom_glitch__x1_transition_png_1354836326_1
+    21300004: phantom_glitch__x1_transition_png_1354836326_2
+    21300006: phantom_glitch__x1_transition_png_1354836326_3
+    21300008: phantom_glitch__x1_transition_png_1354836326_4
+    21300010: phantom_glitch__x1_transition_png_1354836326_5
+    21300012: phantom_glitch__x1_transition_png_1354836326_6
+    21300014: phantom_glitch__x1_transition_png_1354836326_7
+    21300016: phantom_glitch__x1_transition_png_1354836326_8
+    21300018: phantom_glitch__x1_transition_png_1354836326_9
+    21300020: phantom_glitch__x1_transition_png_1354836326_10
+    21300022: phantom_glitch__x1_transition_png_1354836326_11
+    21300024: phantom_glitch__x1_transition_png_1354836326_12
+    21300026: phantom_glitch__x1_transition_png_1354836326_13
+    21300028: phantom_glitch__x1_transition_png_1354836326_14
+    21300030: phantom_glitch__x1_transition_png_1354836326_15
+    21300032: phantom_glitch__x1_transition_png_1354836326_16
+    21300034: phantom_glitch__x1_transition_png_1354836326_17
+    21300036: phantom_glitch__x1_transition_png_1354836326_18
+    21300038: phantom_glitch__x1_transition_png_1354836326_19
+    21300040: phantom_glitch__x1_transition_png_1354836326_20
+    21300042: phantom_glitch__x1_transition_png_1354836326_21
+    21300044: phantom_glitch__x1_transition_png_1354836326_22
+    21300046: phantom_glitch__x1_transition_png_1354836326_23
+    21300048: phantom_glitch__x1_transition_png_1354836326_24
+    21300050: phantom_glitch__x1_transition_png_1354836326_25
+    21300052: phantom_glitch__x1_transition_png_1354836326_26
+    21300054: phantom_glitch__x1_transition_png_1354836326_27
+    21300056: phantom_glitch__x1_transition_png_1354836326_28
+    21300058: phantom_glitch__x1_transition_png_1354836326_29
+    21300060: phantom_glitch__x1_transition_png_1354836326_30
+    21300062: phantom_glitch__x1_transition_png_1354836326_31
+    21300064: phantom_glitch__x1_transition_png_1354836326_32
+    21300066: phantom_glitch__x1_transition_png_1354836326_33
+    21300068: phantom_glitch__x1_transition_png_1354836326_34
+    21300070: phantom_glitch__x1_transition_png_1354836326_35
+    21300072: phantom_glitch__x1_transition_png_1354836326_36
+    21300074: phantom_glitch__x1_transition_png_1354836326_37
+    21300076: phantom_glitch__x1_transition_png_1354836326_38
+    21300078: phantom_glitch__x1_transition_png_1354836326_39
+    21300080: phantom_glitch__x1_transition_png_1354836326_40
+    21300082: phantom_glitch__x1_transition_png_1354836326_41
+    21300084: phantom_glitch__x1_transition_png_1354836326_42
+    21300086: phantom_glitch__x1_transition_png_1354836326_43
+    21300088: phantom_glitch__x1_transition_png_1354836326_44
+    21300090: phantom_glitch__x1_transition_png_1354836326_45
+    21300092: phantom_glitch__x1_transition_png_1354836326_46
+    21300094: phantom_glitch__x1_transition_png_1354836326_47
+    21300096: phantom_glitch__x1_transition_png_1354836326_48
+    21300098: phantom_glitch__x1_transition_png_1354836326_49
+    21300100: phantom_glitch__x1_transition_png_1354836326_50
+    21300102: phantom_glitch__x1_transition_png_1354836326_51
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_3
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_5
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1719
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_7
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_8
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_9
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_11
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1505
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_14
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_15
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_17
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1291
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_19
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_20
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_21
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_22
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_23
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1077
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_24
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_26
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_27
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_28
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_29
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 863
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_30
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_31
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_32
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_33
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_34
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_35
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 649
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_36
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_37
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_38
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_39
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_40
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_41
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 435
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_42
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_43
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_44
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_45
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_46
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_47
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 221
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_48
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_49
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_50
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: phantom_glitch__x1_transition_png_1354836326_51
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 7
+        width: 119
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
