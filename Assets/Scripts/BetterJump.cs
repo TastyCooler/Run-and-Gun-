@@ -7,13 +7,15 @@ public class BetterJump : MonoBehaviour {
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     Rigidbody2D rb;
+  
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(rb.velocity.y < 0)
         {
@@ -22,5 +24,8 @@ public class BetterJump : MonoBehaviour {
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+        
+
+       
     }
 }

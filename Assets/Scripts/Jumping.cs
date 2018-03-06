@@ -9,12 +9,15 @@ public class Jumping : MonoBehaviour
     public float gravity = 10;
     public float maxVelocityChange = 10;
     public float jumpheight = 2;
+    
 
-    private bool grounded;
+    private bool grounded = false;
     private bool dead;
     private Transform playerTransform;
     private GameObject enemy;
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
 
     // Use this for initialization
@@ -23,7 +26,8 @@ public class Jumping : MonoBehaviour
         //playerTransform = GetComponent<Transform>();
         playerTransform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.freezeRotation = true;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -42,31 +46,53 @@ public class Jumping : MonoBehaviour
         _rigidbody.AddForce(velocityChange, ForceMode2D.Force);
         //print(_rigidbody.velocity);
 
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetButton("Jump") && grounded == true )
         {
             _rigidbody.velocity = new Vector3(velocity.x, CalculateJump(), velocity.z);
+            
         }
-
+        grounded = false;
         _rigidbody.AddForce(new Vector3(0, -gravity * _rigidbody.mass, 0));
 
-        grounded = false;
-
           Vector3 _velocity = _rigidbody.velocity;
-          print(_velocity);
+        
+        print(_velocity);
         print(grounded);
+       
 
+        bool flipSprite = (spriteRenderer.flipX ? (_velocity.x > 0.01f) : (_velocity.x < -0.1f));
+
+        if (flipSprite)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+
+        }
+        
+        
+        animator.SetFloat("velocityX", Mathf.Abs(_velocity.x) / maxVelocityChange);
     }
 
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         grounded = true;
+        print(grounded);
+        animator.SetBool("grounded", grounded);
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        animator.SetBool("grounded", grounded);
+        grounded = false;
+    }
+
 
     float CalculateJump()
     {
         float jump = Mathf.Sqrt(2 * jumpheight * gravity);
         return jump;
     }
+
+  
 }
    
