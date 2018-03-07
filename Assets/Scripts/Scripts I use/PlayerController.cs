@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jumping : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    #region public fields
-    public float speed = 10; // Players speed; will be set to 15
-    public float gravity = 10; // Gravity which pushes against the Player; will be set to 3
-    public float maxVelocityChange = 10; // How fast the Player is allowed to be; will be set to 50
-    public float jumpheight = 2; // Players jump height; will be set to 2
+    public GameObject shot;
+   
+    public float shotSpeed = 3f;
+    public float shootRate = 0.2f;
+    public int lookState;
+
+    #region Serializedfields
+    [SerializeField] private float speed = 15; // Players speed; will be set to 15
+    [SerializeField] private float gravity = 3; // Gravity which pushes against the Player; will be set to 3
+    [SerializeField] private float maxVelocityChange = 50; // How fast the Player is allowed to be; will be set to 50
+    [SerializeField] private float jumpheight = 2; // Players jump height; will be set to 2
+    
     #endregion
 
     #region private fields
@@ -26,6 +33,7 @@ public class Jumping : MonoBehaviour
     {
         playerTransform = transform; // Equals the Players Transform component to the attached gameObject
         GetComponents(); // Gets component references
+        
     }
 
     // used for physics 
@@ -34,6 +42,12 @@ public class Jumping : MonoBehaviour
     {
         Moving();
         Flipping();
+        AddRay();
+    }
+
+    private void Update()
+    {
+        Shooting();
     }
     #endregion
 
@@ -44,9 +58,9 @@ public class Jumping : MonoBehaviour
         Vector3 targetvelocity = new Vector3(Input.GetAxis("Horizontal"), 0, 0f); // new Vector3 variable (targetvelocity) set to a new Vector3, which includes Players x-axis.velocity && used for moving
         targetvelocity = playerTransform.TransformDirection(targetvelocity); //! Actually does nothing? Returns the targetvelocity; redundant code?
         targetvelocity = targetvelocity * speed; // Adding Players speed to the targetvelocity
-
+        
         Vector3 velocity = _rigidbody.velocity * 2; // new Vector3 variable (velocity) set to the Players-Rigidbody velocity times 2; 2 because it made the jump feel better
-        Vector3 velocityChange = targetvelocity - velocity * (speed / 4); // new Vector3 variable (velocityChange) set to the calculation of: (targetvelocity - velocity * (speed / 4)) Rigidbodies mass and gravity firstly gets used here
+        Vector3 velocityChange = targetvelocity - velocity * (speed /4); // new Vector3 variable (velocityChange) set to the calculation of: (targetvelocity - velocity * (speed / 4)) Rigidbodies mass and gravity firstly gets used here
         velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange); // clamping the new x-axis velocity between -maxVelocityChange and maxVelocityChange
         velocityChange.y = 0; // Y-Axis has to be set to 0; else the Y velocity gets calculated all the time 
         _rigidbody.AddForce(velocityChange, ForceMode2D.Force); // adds the value of velocityChange as a force to the rigidbody
@@ -54,13 +68,52 @@ public class Jumping : MonoBehaviour
         #region jump()
         if (Input.GetButton("Jump") && grounded == true) // Adding the Jump Input. Players only able to jump if he is standing on the ground (if grounded == true)
         {
-            _rigidbody.velocity = new Vector3(velocity.x, CalculateJump()); // Setting the rigidbodies velocity to a new Vector3 (can also be Vector2), with the CalculateJump function
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, CalculateJump()); // Setting the rigidbodies velocity to a new Vector3 (can also be Vector2), with the CalculateJump function
 
         }
 
         _rigidbody.AddForce(new Vector3(0, -gravity * _rigidbody.mass, 0)); // adds the -gravity * the rigidbodys mass, to simulate a more realistic jump, since the Character has a mass
                                                                             // its a ghost...
+        
         #endregion
+    }
+
+    void Shooting()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+
+            InvokeRepeating("Shooter", 0.000001f, shootRate);
+        }
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            CancelInvoke("Shooter");
+        }
+    }
+
+    void Shooter()
+    {
+        Vector3 offset = transform.position + new Vector3(0.1f, 0f, 0f);
+        Vector2 slowStart = new Vector2(1f, 0f);
+        if (lookState == 0)
+        {
+           offset = transform.position + new Vector3(0.1f, 0f, 0f);
+            GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
+            shoot.GetComponent<Rigidbody2D>().AddForce(slowStart * shotSpeed, ForceMode2D.Impulse);
+            
+        } else if ( lookState == 1)
+        {
+            offset = transform.position + new Vector3(-0.1f, 0f, 0f);
+            GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
+            Rigidbody2D rShot = shoot.GetComponent<Rigidbody2D>();
+            rShot.AddForce(-slowStart * shotSpeed, ForceMode2D.Impulse);
+            if(rShot.velocity.x < 0f)
+            {
+                shoot.transform.localScale = new Vector3(-shoot.transform.localScale.x, shoot.transform.localScale.y, shoot.transform.localScale.z);
+            }
+            
+        }
+        
     }
 
     void Flipping()
@@ -78,6 +131,22 @@ public class Jumping : MonoBehaviour
         animator.SetFloat("velocityX", Mathf.Abs(_velocity.x) / maxVelocityChange); // velocityX used as a condition for the AnimationController, to detect if the player is moving -> to start the moving anim.
     }
 
+    void AddRay()
+    {
+        Vector3 _velocity = _rigidbody.velocity;
+        if (_velocity.x > 0.01f)
+        {
+            lookState = 0;
+            RaycastHit2D Ray = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
+        }
+        else if (_velocity.x < -0.01f)
+        {
+            lookState = 1;
+            RaycastHit2D Ray = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
+        }
+        
+    }
+
     private void OnCollisionStay2D(Collision2D collision) // if the player is colliding with something, grounded is set to true 
     {
         grounded = true;
@@ -86,8 +155,9 @@ public class Jumping : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) // if the player doesn't collide with anything
     {
-        animator.SetBool("grounded", grounded);
         grounded = false;
+        animator.SetBool("grounded", grounded);
+        
     }
 
 
