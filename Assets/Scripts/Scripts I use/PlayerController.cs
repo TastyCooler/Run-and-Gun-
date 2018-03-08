@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Public fields
     public GameObject shot;
-   
-    public float shotSpeed = 3f;
-    public float shootRate = 0.2f;
-    public int lookState;
+
+    #endregion
 
     #region Serializedfields
     [SerializeField] private float speed = 15; // Players speed; will be set to 15
     [SerializeField] private float gravity = 3; // Gravity which pushes against the Player; will be set to 3
     [SerializeField] private float maxVelocityChange = 50; // How fast the Player is allowed to be; will be set to 50
     [SerializeField] private float jumpheight = 2; // Players jump height; will be set to 2
-    
+    [SerializeField] private float shotSpeed = 3f;
+    [SerializeField] private float shootRate = 0.2f;
+
     #endregion
 
     #region private fields
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody; // Players Rigidbody; Mass: 0.25f, LD: 0, AD: 0.05f, Gravity S.: 1
     private SpriteRenderer spriteRenderer; // Players SpriteRenderer component; used to flip the Sprite after turning the character
     private Animator animator; // Players Animator component; used to set conditions for the AnimatorController
+    private int lookState;
+    private BoxCollider2D collider;
+
     #endregion
 
     #region Unity functions
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
         playerTransform = transform; // Equals the Players Transform component to the attached gameObject
         GetComponents(); // Gets component references
         
+
     }
 
     // used for physics 
@@ -43,14 +48,18 @@ public class PlayerController : MonoBehaviour
         Moving();
         Flipping();
         AddRay();
+        
     }
 
     private void Update()
     {
         Shooting();
+        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), new Vector3(-0.15f, -0.1f) * 0.3f);
+        //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), new Vector3( 0.15f, -0.1f) * 0.3f);
     }
     #endregion
-
+    
+   
     #region Functions
     void Moving()
     {
@@ -71,7 +80,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, CalculateJump()); // Setting the rigidbodies velocity to a new Vector3 (can also be Vector2), with the CalculateJump function
 
         }
-
+        
         _rigidbody.AddForce(new Vector3(0, -gravity * _rigidbody.mass, 0)); // adds the -gravity * the rigidbodys mass, to simulate a more realistic jump, since the Character has a mass
                                                                             // its a ghost...
         
@@ -100,18 +109,19 @@ public class PlayerController : MonoBehaviour
            offset = transform.position + new Vector3(0.1f, 0f, 0f);
             GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
             shoot.GetComponent<Rigidbody2D>().AddForce(slowStart * shotSpeed, ForceMode2D.Impulse);
-            
+                Destroy(shoot, 5);
+
         } else if ( lookState == 1)
         {
             offset = transform.position + new Vector3(-0.1f, 0f, 0f);
             GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
             Rigidbody2D rShot = shoot.GetComponent<Rigidbody2D>();
-            rShot.AddForce(-slowStart * shotSpeed, ForceMode2D.Impulse);
+            rShot.AddForce(-slowStart  * shotSpeed, ForceMode2D.Impulse);
             if(rShot.velocity.x < 0f)
             {
-                shoot.transform.localScale = new Vector3(-shoot.transform.localScale.x, shoot.transform.localScale.y, shoot.transform.localScale.z);
+                shoot.transform.localScale = new Vector3(-shoot.transform.localScale.x, shoot.transform.localScale.y , shoot.transform.localScale.z);
             }
-            
+            Destroy(shoot, 5);
         }
         
     }
@@ -131,19 +141,34 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("velocityX", Mathf.Abs(_velocity.x) / maxVelocityChange); // velocityX used as a condition for the AnimationController, to detect if the player is moving -> to start the moving anim.
     }
 
+    
     void AddRay()
     {
         Vector3 _velocity = _rigidbody.velocity;
         if (_velocity.x > 0.01f)
         {
             lookState = 0;
-            RaycastHit2D Ray = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
         }
         else if (_velocity.x < -0.01f)
         {
             lookState = 1;
-            RaycastHit2D Ray = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
         }
+        if (lookState == 0 && Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector3(0.15f, -0.1f), 0.3f))
+        {
+           // RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector3(0.15f, -0.1f), 0.5f);
+           // print("rayhits" + ray.collider.gameObject.layer.ToString());
+            collider.size = new Vector2(1f, collider.size.y);
+        } else if (lookState == 1 && Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector3(-0.15f, -0.1f), 0.3f))
+        {
+           // RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector3(-0.15f, -0.1f), 0.5f);
+           // print("rayhits" + ray.collider.gameObject.layer.ToString());
+            collider.size = new Vector2(1f, collider.size.y);
+        } else
+        {
+           // print("ray no hit");
+            collider.size = new Vector2(1.5f, collider.size.y);
+        }
+        
         
     }
 
@@ -173,6 +198,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        collider = GetComponent<BoxCollider2D>();
     }
     #endregion
 }
