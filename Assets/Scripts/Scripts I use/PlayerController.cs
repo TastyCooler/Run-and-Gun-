@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Public fields
-    public GameObject shot;
+    public GameObject shot; // Projectile Prefab
 
     #endregion
 
@@ -14,8 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravity = 3; // Gravity which pushes against the Player; will be set to 3
     [SerializeField] private float maxVelocityChange = 50; // How fast the Player is allowed to be; will be set to 50
     [SerializeField] private float jumpheight = 2; // Players jump height; will be set to 2
-    [SerializeField] private float shotSpeed = 3f;
-    [SerializeField] private float shootRate = 0.2f;
+    [SerializeField] private float fallMultiplier = 0.3f;
+    [SerializeField] private float lowJumpMultiplier = 3f;
+    [SerializeField] private float shotSpeed = 3f; // Speed of the projectile
+    [SerializeField] private float shootRate = 5f; // Rate of shooting
+    
 
     #endregion
 
@@ -26,8 +29,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody; // Players Rigidbody; Mass: 0.25f, LD: 0, AD: 0.05f, Gravity S.: 1
     private SpriteRenderer spriteRenderer; // Players SpriteRenderer component; used to flip the Sprite after turning the character
     private Animator animator; // Players Animator component; used to set conditions for the AnimatorController
-    private int lookState;
-    private BoxCollider2D collider;
+    private int lookState; // Integer for each view direction; State = 0 -> right, State = 1 -> left, TODO: State = 2 -> up
+    private BoxCollider2D collider; // The Players collider
 
     #endregion
 
@@ -35,10 +38,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerTransform = transform; // Equals the Players Transform component to the attached gameObject
-        GetComponents(); // Gets component references
-        
-
+        GetComponents(); // Gets component reference
     }
 
     // used for physics 
@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
         Moving();
         Flipping();
         AddRay();
-        
     }
 
     private void Update()
@@ -58,10 +57,9 @@ public class PlayerController : MonoBehaviour
         //Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), new Vector3( 0.15f, -0.1f) * 0.3f);
     }
     #endregion
-    
-   
-    #region Functions
-    void Moving()
+
+    #region Private Functions
+    private void Moving()
     {
         #region moving()
         Vector3 targetvelocity = new Vector3(Input.GetAxis("Horizontal"), 0, 0f); // new Vector3 variable (targetvelocity) set to a new Vector3, which includes Players x-axis.velocity && used for moving
@@ -83,11 +81,19 @@ public class PlayerController : MonoBehaviour
         
         _rigidbody.AddForce(new Vector3(0, -gravity * _rigidbody.mass, 0)); // adds the -gravity * the rigidbodys mass, to simulate a more realistic jump, since the Character has a mass
                                                                             // its a ghost...
-        
+        // This adds a low jump, if you press the Jump button shortly
+        if (_rigidbody.velocity.y < 0)
+        {
+            _rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (_rigidbody.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            _rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
         #endregion
     }
 
-    void Shooting()
+    private void Shooting()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -100,33 +106,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Shooter()
+    private void Shooter()
     {
-        Vector3 offset = transform.position + new Vector3(0.1f, 0f, 0f);
-        Vector2 slowStart = new Vector2(1f, 0f);
-        if (lookState == 0)
+        Vector2 slowStart = new Vector2(1f, 0f); //Should slow down the projectile at the beginning, but doesn't
+        if (lookState == 0) // facing the right side
         {
-           offset = transform.position + new Vector3(0.1f, 0f, 0f);
-            GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
-            shoot.GetComponent<Rigidbody2D>().AddForce(slowStart * shotSpeed, ForceMode2D.Impulse);
-                Destroy(shoot, 5);
+           Vector3 offset = transform.position + new Vector3(0.1f, 0f, 0f); // Adding a offset to the spawn of the projectile
+           GameObject shoot = Instantiate(shot, offset, Quaternion.identity); // Producing a shot
+           shoot.GetComponent<Rigidbody2D>().AddForce(slowStart * shotSpeed, ForceMode2D.Impulse); // Adds movement to the shots
+           Destroy(shoot, 3); // Destroys the shot after 3 seconds
 
-        } else if ( lookState == 1)
+        } else if ( lookState == 1) //facing the left side
         {
-            offset = transform.position + new Vector3(-0.1f, 0f, 0f);
-            GameObject shoot = Instantiate(shot, offset, Quaternion.identity) as GameObject;
+            Vector3 offset = transform.position + new Vector3(-0.1f, 0f, 0f); // Adding a offset to the spawn of the projectile
+            GameObject shoot = Instantiate(shot, offset, Quaternion.identity); // Producing a shot
             Rigidbody2D rShot = shoot.GetComponent<Rigidbody2D>();
             rShot.AddForce(-slowStart  * shotSpeed, ForceMode2D.Impulse);
             if(rShot.velocity.x < 0f)
             {
-                shoot.transform.localScale = new Vector3(-shoot.transform.localScale.x, shoot.transform.localScale.y , shoot.transform.localScale.z);
+                shoot.transform.localScale = new Vector3(-shoot.transform.localScale.x, shoot.transform.localScale.y , shoot.transform.localScale.z); // flipping the sprite
             }
-            Destroy(shoot, 5);
+            Destroy(shoot, 3);
         }
         
     }
 
-    void Flipping()
+    private void Flipping()
     {
         Vector3 _velocity = _rigidbody.velocity; // setting the rigidbodys velocity to a new variable (_velocity)
         bool flipSprite = (spriteRenderer.flipX ? (_velocity.x > 0.01f) : (_velocity.x < -0.01f)); // ? returns a bool value; it checks if the velocity.x is bigger than 0.01f
@@ -141,17 +146,16 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("velocityX", Mathf.Abs(_velocity.x) / maxVelocityChange); // velocityX used as a condition for the AnimationController, to detect if the player is moving -> to start the moving anim.
     }
 
-    
-    void AddRay()
+    private void AddRay() //casting Raycast, which check if there is ground under the player, if there is none the players collider gets bigger.
     {
         Vector3 _velocity = _rigidbody.velocity;
         if (_velocity.x > 0.01f)
         {
-            lookState = 0;
+            lookState = 0; //facing right side
         }
         else if (_velocity.x < -0.01f)
         {
-            lookState = 1;
+            lookState = 1; //facing left side
         }
         if (lookState == 0 && Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector3(0.15f, -0.1f), 0.3f))
         {
@@ -166,7 +170,7 @@ public class PlayerController : MonoBehaviour
         } else
         {
            // print("ray no hit");
-            collider.size = new Vector2(1.5f, collider.size.y);
+            collider.size = new Vector2(1.5f, collider.size.y); 
         }
         
         
@@ -185,16 +189,15 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
-    float CalculateJump() // Calculation used for jumping
+    private float CalculateJump() // Calculation used for jumping
     {
         float jump = Mathf.Sqrt(2 * jumpheight * gravity); // The Jump is the square root of (2* jumpheight * gravity)
         return jump;
     }
 
-  
     private void GetComponents()
     {
+        playerTransform = transform; // Equals the Players Transform component to the attached gameObject
         _rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
